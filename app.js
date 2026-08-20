@@ -1,5 +1,5 @@
 /**
- * Jiron • Time Tracker & DevOps Dashboard Application Logic
+ * Jiron • Control de Tiempo & Panel DevOps - Lógica de Aplicación
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,7 +28,7 @@ function setupNavigation() {
       } else if (view === 'view-devops') {
         openModal('modal-devops');
       } else {
-        const spanText = item.querySelector('span')?.textContent || 'Time Tracker';
+        const spanText = item.querySelector('span')?.textContent || 'Control de Tiempo';
         if (titleEl) titleEl.textContent = spanText;
       }
     });
@@ -73,7 +73,7 @@ function closeModal(id) {
   if (modal) modal.classList.remove('active');
 }
 
-// Conmutador de Periodo (Month, Day, Week)
+// Conmutador de Periodo (Mes, Día, Semana)
 function setupPeriodSwitcher() {
   const buttons = document.querySelectorAll('.period-btn:not(.dots)');
   buttons.forEach(btn => {
@@ -104,7 +104,7 @@ function setupHobbyForm() {
     const category = document.getElementById('hobby-category').value;
     const hours = document.getElementById('hobby-hours').value;
 
-    // Toast feedback
+    // Feedback visual
     alert(`✨ ¡Hobby "${name}" (${category} • ${hours}h/sem) registrado con éxito!`);
     form.reset();
     closeModal('modal-add-hobby');
@@ -125,33 +125,33 @@ function setupAgentSimulator() {
     terminal.innerHTML = '';
 
     const logs = [
-      { cls: 't-info', text: `[OpenCode AI v1.18.18] Conectando con entorno local...` },
-      { cls: 't-thought', text: `🤔 [Pensamiento]: Procesando '${selectedTask}' con los horarios del Task Management.` },
-      { cls: 't-info', text: `⚡ [Acción]: Ejecutando herramienta de optimización de horario...` }
+      { cls: 't-info', text: `[OpenCode AI v1.18.18] Conectando con el entorno de trabajo local...` },
+      { cls: 't-thought', text: `🤔 [Pensamiento]: Procesando solicitud '${selectedTask}' con los horarios del panel.` },
+      { cls: 't-info', text: `⚡ [Acción]: Ejecutando herramienta de optimización y análisis de hábitos...` }
     ];
 
     let finalMsg = '';
     if (selectedTask === 'plan_7_dias') {
       finalMsg = `
-📅 PLAN DE 7 DÍAS RECOMENDADO:
-• Lunes: 09:00 - UI & Mobile App Design (2h)
-• Martes: 09:45 - API Integration & Backend en Python (1.5h)
-• Miércoles: 09:45 - Estudio de Algoritmos & Open Code (1h)
-• Jueves: 09:00 - Wireframing & UX Architecture (1.5h)
-• Viernes: 09:45 - Pruebas y QA en Docker (1h)
-• Sábado: 09:45 - Prototipado y creación de microservicios (2h)
-• Domingo: Revisión de métricas y descanso activo.`;
+📅 PLAN DE 7 DÍAS ESTRUCTURADO POR OPEN CODE:
+• Lunes: 09:00 - Diseño UI y Prototipado Móvil (2h)
+• Martes: 09:45 - Integración de APIs y Backend en Python (1.5h)
+• Miércoles: 09:45 - Estudio de Algoritmos y Agentes Autónomos (1h)
+• Jueves: 09:00 - Wireframing y Arquitectura de Experiencia UX (1.5h)
+• Viernes: 09:45 - Pruebas y Despliegue en Contenedor Docker (1h)
+• Sábado: 09:45 - Prototipado y Creación de Microservicios (2h)
+• Domingo: Revisión de métricas semanales y descanso activo.`;
     } else if (selectedTask === 'recomendaciones') {
       finalMsg = `
 💡 3 HOBBIES COMPLEMENTARIOS SUGERIDOS:
-1. 🎨 Ilustración Vectorial (Mejora tus habilidades en UI/UX).
-2. 🧘 Mindfulness Diario (Mejora la concentración al programar).
-3. 📸 Fotografía Urbana (Estimula la perspectiva visual).`;
+1. 🎨 Ilustración Vectorial (Mejora directa para tus habilidades en UI/UX).
+2. 🧘 Mindfulness Diario (Potencia la concentración y reduce el estrés al codificar).
+3. 📸 Fotografía Urbana (Estimula la observación y composición visual).`;
     } else {
       finalMsg = `
-⏳ OPTIMIZACIÓN DE TIEMPO:
-• Carga actual detectada: 14.5 horas semanales distribuidas.
-• Recomendación: Bloques de trabajo profundo de 45 min con 10 min de descanso.`;
+⏳ DIAGNÓSTICO DE OPTIMIZACIÓN DE TIEMPO:
+• Horas registradas: 14.5 horas semanales distribuidas.
+• Recomendación: Bloques de enfoque profundo de 45 min con 10 min de descanso activo (Técnica Pomodoro).`;
     }
 
     let i = 0;
@@ -169,7 +169,7 @@ function setupAgentSimulator() {
           const res = document.createElement('p');
           res.className = 't-line';
           res.style.color = '#34d399';
-          res.innerHTML = `<strong>Respuesta del Agente:</strong><pre style="margin-top:0.3rem; color:#a7f3d0;">${finalMsg}</pre>`;
+          res.innerHTML = `<strong>Respuesta del Agente:</strong><pre style="margin-top:0.3rem; color:#a7f3d0; font-family:var(--font-mono);">${finalMsg}</pre>`;
           terminal.appendChild(res);
           terminal.scrollTop = terminal.scrollHeight;
         }, 300);

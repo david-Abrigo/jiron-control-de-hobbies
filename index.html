@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jiron • Hobby & Time Tracker</title>
+  <title>Jiron • Control de Tiempo y Hobbies</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,36 +25,36 @@
 
         <!-- Navegación Principal -->
         <div class="sidebar-menu">
-          <div class="menu-section-label">Main</div>
+          <div class="menu-section-label">Principal</div>
           <ul class="nav-list">
             <li class="nav-item active" data-view="view-tracker">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              <span>Time Tracker</span>
+              <span>Control de Tiempo</span>
             </li>
             <li class="nav-item" data-view="view-hobbies">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-              <span>Projects & Hobbies</span>
+              <span>Proyectos y Hobbies</span>
             </li>
             <li class="nav-item" data-view="view-reports">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"></path></svg>
-              <span>Reports</span>
+              <span>Reportes</span>
             </li>
             <li class="nav-item" data-view="view-tags">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
-              <span>Tags</span>
+              <span>Etiquetas</span>
             </li>
           </ul>
 
-          <div class="menu-section-label" style="margin-top: 1.5rem;">DevOps & IA</div>
+          <div class="menu-section-label" style="margin-top: 1.5rem;">DevOps e IA</div>
           <ul class="nav-list">
             <li class="nav-item" data-view="view-opencode" id="nav-opencode">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4M8 15h.01M16 15h.01"></path></svg>
-              <span>Open Code Agent</span>
+              <span>Agente Open Code</span>
               <span class="badge-counter">3</span>
             </li>
             <li class="nav-item" data-view="view-devops" id="nav-devops">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
-              <span>Git & Render</span>
+              <span>Git y Render</span>
             </li>
           </ul>
         </div>
@@ -66,7 +66,7 @@
           </div>
           <div class="user-info">
             <span class="user-name">David Abrigo</span>
-            <span class="user-role">Docker Ready</span>
+            <span class="user-role">Listo para Docker</span>
           </div>
         </div>
       </aside>
@@ -77,7 +77,7 @@
         <!-- Topbar con Título e Iconos -->
         <header class="topbar">
           <div class="topbar-left">
-            <h1 class="page-title" id="current-view-title">Time Tracker</h1>
+            <h1 class="page-title" id="current-view-title">Control de Tiempo</h1>
           </div>
           <div class="topbar-right">
             <button class="btn-create-hobby" id="btn-open-add-modal">
@@ -108,8 +108,8 @@
               </div>
               <button class="card-dots-btn">•••</button>
             </div>
-            <h3 class="category-title">UI & Creatividad</h3>
-            <p class="category-desc">Desarrollo de hobbies visuales, diseño y composición musical...</p>
+            <h3 class="category-title">Diseño UI & Creatividad</h3>
+            <p class="category-desc">Crea experiencias intuitivas, diseño visual y composición...</p>
           </div>
 
           <!-- Tarjeta 2: Azul -->
@@ -123,8 +123,8 @@
               </div>
               <button class="card-dots-btn">•••</button>
             </div>
-            <h3 class="category-title">Open Code & Docker</h3>
-            <p class="category-desc">Automatización de tareas con agentes, microservicios y despliegue...</p>
+            <h3 class="category-title">Proyectos en Equipo</h3>
+            <p class="category-desc">Desarrollo continuo, agentes autónomos y Docker en Render...</p>
           </div>
 
           <!-- Tarjeta 3: Amarillo / Ámbar -->
@@ -137,8 +137,8 @@
               </div>
               <button class="card-dots-btn">•••</button>
             </div>
-            <h3 class="category-title">Deportes & Fitness</h3>
-            <p class="category-desc">Senderismo, rutinas de resistencia física y hábitos saludables...</p>
+            <h3 class="category-title">Desarrollo Front-end</h3>
+            <p class="category-desc">Construye interfaces modernas, atractivas y de alto rendimiento...</p>
           </div>
 
           <!-- Tarjeta 4: Rosa / Magenta -->
@@ -151,28 +151,28 @@
               </div>
               <button class="card-dots-btn">•••</button>
             </div>
-            <h3 class="category-title">Python Developers</h3>
-            <p class="category-desc">Programación aplicada, lógica de agentes y backend en Render...</p>
+            <h3 class="category-title">Desarrolladores Python</h3>
+            <p class="category-desc">Lógica de agentes IA, automatización y APIs escalables...</p>
           </div>
         </section>
 
-        <!-- SECCIÓN 2: KANBAN DE ESTADOS (Draft, In Progress, Editing, Done) -->
+        <!-- SECCIÓN 2: KANBAN DE ESTADOS (Borrador, En Progreso, En Edición, Completado) -->
         <section class="kanban-grid">
           
-          <!-- Columna 1: Draft -->
+          <!-- Columna 1: Borrador -->
           <div class="kanban-column">
             <div class="kanban-header">
-              <span class="kanban-title">Draft</span>
+              <span class="kanban-title">Borrador</span>
               <button class="column-dots-btn">•••</button>
             </div>
             <div class="kanban-tasks">
               <div class="kanban-item">
                 <span class="badge-tag tag-purple">UI</span>
-                <span class="task-title">Redesign a Mobile App</span>
+                <span class="task-title">Rediseñar una Aplicación Móvil</span>
               </div>
               <div class="kanban-item">
                 <span class="badge-tag tag-amber">FD</span>
-                <span class="task-title">API Integration Challenge</span>
+                <span class="task-title">Reto de Integración de API</span>
               </div>
             </div>
             <div class="kanban-footer">
@@ -184,20 +184,20 @@
             </div>
           </div>
 
-          <!-- Columna 2: In Progress -->
+          <!-- Columna 2: En Progreso -->
           <div class="kanban-column">
             <div class="kanban-header">
-              <span class="kanban-title">In Progress</span>
+              <span class="kanban-title">En Progreso</span>
               <button class="column-dots-btn">•••</button>
             </div>
             <div class="kanban-tasks">
               <div class="kanban-item">
                 <span class="badge-tag tag-pink">PD</span>
-                <span class="task-title">Data Processing Script</span>
+                <span class="task-title">Script de Procesamiento de Datos</span>
               </div>
               <div class="kanban-item">
                 <span class="badge-tag tag-amber">FD</span>
-                <span class="task-title">Build a landing page for hobbies</span>
+                <span class="task-title">Crear landing page para hobbies</span>
               </div>
             </div>
             <div class="kanban-footer">
@@ -209,29 +209,29 @@
             </div>
           </div>
 
-          <!-- Columna 3: Editing / Open Code -->
+          <!-- Columna 3: En Edición -->
           <div class="kanban-column">
             <div class="kanban-header">
-              <span class="kanban-title">Editing</span>
+              <span class="kanban-title">En Edición</span>
               <button class="column-dots-btn">•••</button>
             </div>
             <div class="kanban-tasks checklist-mode">
               <div class="check-step">
                 <span class="dot-indicator blue"></span>
-                <span>User Authentication Mo...</span>
+                <span>Módulo de Autenticación de Us...</span>
               </div>
               <div class="check-step">
                 <span class="dot-indicator blue"></span>
-                <span>Data Processing Script</span>
+                <span>Script de Procesamiento de Datos</span>
               </div>
               <div class="check-step">
                 <span class="dot-indicator blue"></span>
-                <span>API Integration Service</span>
+                <span>Servicio de Integración de API</span>
               </div>
             </div>
             <div class="kanban-footer">
               <div class="success-pills">
-                <span class="pill-label">Success</span>
+                <span class="pill-label">Éxito</span>
                 <span class="check-dot">✓</span>
                 <span class="check-dot">✓</span>
                 <span class="check-dot">✓</span>
@@ -240,26 +240,26 @@
             </div>
           </div>
 
-          <!-- Columna 4: Done -->
+          <!-- Columna 4: Completado -->
           <div class="kanban-column">
             <div class="kanban-header">
-              <span class="kanban-title">Done</span>
+              <span class="kanban-title">Completado</span>
               <button class="column-dots-btn">•••</button>
             </div>
             <div class="kanban-tasks">
               <div class="kanban-item done-item">
                 <span class="badge-tag tag-purple">UI</span>
-                <span class="task-title">Provide a short explanation...</span>
+                <span class="task-title">Proveer una breve explicación...</span>
                 <span class="status-check">✓</span>
               </div>
               <div class="kanban-item done-item">
                 <span class="badge-tag tag-purple">UI</span>
-                <span class="task-title">Navigation bar that stick...</span>
+                <span class="task-title">Barra de navegación fija...</span>
                 <span class="status-check">✓</span>
               </div>
               <div class="kanban-item done-item">
                 <span class="badge-tag tag-pink">PD</span>
-                <span class="task-title">Endpoints to create, rea...</span>
+                <span class="task-title">Endpoints para crear, leer...</span>
                 <span class="status-check">✓</span>
               </div>
             </div>
@@ -267,15 +267,15 @@
 
         </section>
 
-        <!-- SECCIÓN 3: TASK MANAGEMENT / HORARIO SEMANAL -->
+        <!-- SECCIÓN 3: GESTIÓN DE TAREAS Y HORARIOS -->
         <section class="schedule-section">
           
           <div class="schedule-header">
-            <h2 class="schedule-title">Task Management</h2>
+            <h2 class="schedule-title">Gestión de Tareas y Horarios</h2>
             <div class="period-switcher">
-              <button class="period-btn">Month</button>
-              <button class="period-btn">Day</button>
-              <button class="period-btn active">Week</button>
+              <button class="period-btn">Mes</button>
+              <button class="period-btn">Día</button>
+              <button class="period-btn active">Semana</button>
               <button class="period-btn dots">•••</button>
             </div>
           </div>
@@ -288,31 +288,31 @@
               <div class="calendar-row header-row">
                 <div class="time-col-header"></div>
                 <div class="day-col-header">
-                  <span class="day-name">Monday</span>
+                  <span class="day-name">Lunes</span>
                   <span class="day-date">09.08.2025</span>
                 </div>
                 <div class="day-col-header highlight-col">
-                  <span class="day-name">Tuesday</span>
+                  <span class="day-name">Martes</span>
                   <span class="day-date">10.08.2025</span>
                 </div>
                 <div class="day-col-header">
-                  <span class="day-name">Wednesday</span>
+                  <span class="day-name">Miércoles</span>
                   <span class="day-date">11.08.2025</span>
                 </div>
                 <div class="day-col-header">
-                  <span class="day-name">Thursday</span>
+                  <span class="day-name">Jueves</span>
                   <span class="day-date">12.08.2025</span>
                 </div>
                 <div class="day-col-header">
-                  <span class="day-name">Friday</span>
+                  <span class="day-name">Viernes</span>
                   <span class="day-date">13.08.2025</span>
                 </div>
                 <div class="day-col-header">
-                  <span class="day-name">Saturday</span>
+                  <span class="day-name">Sábado</span>
                   <span class="day-date">14.08.2025</span>
                 </div>
                 <div class="day-col-header">
-                  <span class="day-name">Sunday</span>
+                  <span class="day-name">Domingo</span>
                   <span class="day-date">15.08.2025</span>
                 </div>
               </div>
@@ -347,7 +347,7 @@
                       <div class="card-avatar-mini">
                         <span>👤</span><span>👤</span><span>👤</span><span class="mini-count">9</span>
                       </div>
-                      <span class="card-schedule-text">Creating a seamless mobile app f...</span>
+                      <span class="card-schedule-text">Creando una app móvil fluida...</span>
                     </div>
                   </div>
                   <div class="time-cell highlight-cell"></div>
@@ -358,7 +358,7 @@
                       <div class="card-avatar-mini">
                         <span>🏛️</span><span>👤</span><span>👤</span><span class="mini-count">2</span>
                       </div>
-                      <span class="card-schedule-text">Designs intuitive and engaging di...</span>
+                      <span class="card-schedule-text">Diseños intuitivos y atractivos...</span>
                     </div>
                   </div>
                   <div class="time-cell"></div>
@@ -388,7 +388,7 @@
                       <div class="card-avatar-mini">
                         <span>📹</span><span>👤</span><span>👤</span><span class="mini-count">3</span>
                       </div>
-                      <span class="card-schedule-text">The Exciting World of API Integration:...</span>
+                      <span class="card-schedule-text">El emocionante mundo de APIs:...</span>
                     </div>
                   </div>
                   <div class="time-cell">
@@ -397,7 +397,7 @@
                       <div class="card-avatar-mini">
                         <span>🏛️</span><span>👤</span><span>👤</span><span class="mini-count">3</span>
                       </div>
-                      <span class="card-schedule-text">Enhance Your Skills and Knowledge...</span>
+                      <span class="card-schedule-text">Mejora tus habilidades y práctica...</span>
                     </div>
                   </div>
                   <div class="time-cell"></div>
@@ -407,7 +407,7 @@
                       <div class="card-avatar-mini">
                         <span>🏛️</span><span>👤</span><span>👤</span><span class="mini-count">3</span>
                       </div>
-                      <span class="card-schedule-text">Test with real users to ensure the fl...</span>
+                      <span class="card-schedule-text">Pruebas con usuarios reales...</span>
                     </div>
                   </div>
                   <div class="time-cell">
@@ -416,7 +416,7 @@
                       <div class="card-avatar-mini">
                         <span>📹</span><span>👤</span><span>👤</span><span class="mini-count">3</span>
                       </div>
-                      <span class="card-schedule-text">Prototyping and create world of API...</span>
+                      <span class="card-schedule-text">Prototipado y creación de APIs...</span>
                     </div>
                   </div>
                   <div class="time-cell"></div>
@@ -442,7 +442,7 @@
                       <div class="card-avatar-mini">
                         <span>🏛️</span><span>👤</span><span>👤</span><span class="mini-count">3</span>
                       </div>
-                      <span class="card-schedule-text">Test with real users to...</span>
+                      <span class="card-schedule-text">Pruebas con usuarios reales...</span>
                     </div>
                   </div>
                   <div class="time-cell highlight-cell"></div>
@@ -452,7 +452,7 @@
                       <div class="card-avatar-mini">
                         <span>📹</span><span>👤</span><span>👤</span><span class="mini-count">3</span>
                       </div>
-                      <span class="card-schedule-text">Start by mapping out...</span>
+                      <span class="card-schedule-text">Comenzar mapeando el flujo...</span>
                     </div>
                   </div>
                   <div class="time-cell"></div>
@@ -462,7 +462,7 @@
                       <div class="card-avatar-mini">
                         <span>📹</span><span>👤</span><span>👤</span><span class="mini-count">3</span>
                       </div>
-                      <span class="card-schedule-text">Consider the onboarding...</span>
+                      <span class="card-schedule-text">Planificar proceso de bienvenida...</span>
                     </div>
                   </div>
                 </div>
@@ -493,10 +493,10 @@
           <div class="form-group">
             <label for="hobby-category">Categoría *</label>
             <select id="hobby-category" required>
-              <option value="UI & Creatividad">🎨 UI & Creatividad</option>
-              <option value="Open Code & Docker">💻 Open Code & Docker</option>
-              <option value="Deportes & Fitness">🏃 Deportes & Fitness</option>
-              <option value="Python Developers">🐍 Python Developers</option>
+              <option value="Diseño UI & Creatividad">🎨 Diseño UI & Creatividad</option>
+              <option value="Proyectos en Equipo">💻 Proyectos en Equipo</option>
+              <option value="Desarrollo Front-end">🏃 Desarrollo Front-end</option>
+              <option value="Desarrolladores Python">🐍 Desarrolladores Python</option>
               <option value="Otros">✨ Otros</option>
             </select>
           </div>
@@ -539,7 +539,7 @@
             <select id="agent-prompt-select">
               <option value="plan_7_dias">📅 Diseñar plan de 7 días para mis hobbies</option>
               <option value="recomendaciones">💡 Recomendar 3 hobbies complementarios</option>
-              <option value="optimizacion_tiempo">⏳ Optimizar horario de Time Tracker</option>
+              <option value="optimizacion_tiempo">⏳ Optimizar horario de Control de Tiempo</option>
             </select>
             <button id="btn-run-agent" class="btn-agent-action">Ejecutar Agente ⚡</button>
           </div>
@@ -547,12 +547,12 @@
 
         <div class="terminal-box">
           <div class="terminal-top">
-            <span class="term-title">opencode-ai v1.18.18 (ReAct Loop)</span>
+            <span class="term-title">opencode-ai v1.18.18 (Ciclo ReAct)</span>
             <button id="btn-copy-terminal" class="btn-copy-term">Copiar</button>
           </div>
           <div id="agent-terminal-output" class="terminal-logs">
             <p class="t-line t-dim">// Agente Open Code preparado.</p>
-            <p class="t-line t-dim">// Haz clic en 'Ejecutar Agente' para iniciar.</p>
+            <p class="t-line t-dim">// Haz clic en 'Ejecutar Agente' para iniciar el análisis.</p>
           </div>
         </div>
       </div>
@@ -574,7 +574,7 @@
           <h4>1. Iniciar Git Local</h4>
           <pre><code>git init
 git add .
-git commit -m "feat: proyecto registro de hobbies estilo Jiron"</code></pre>
+git commit -m "feat: proyecto registro de hobbies estilo Jiron en español"</code></pre>
         </div>
         <div class="devops-step">
           <h4>2. Subir a GitHub</h4>
@@ -584,10 +584,10 @@ git push -u origin main</code></pre>
         </div>
         <div class="devops-step">
           <h4>3. Crear Rama y Fusionar</h4>
-          <pre><code>git checkout -b feature/nuevo-estilo
-git add . && git commit -m "feat: interfaz moderna Jiron"
+          <pre><code>git checkout -b feature/traduccion-espanol
+git add . && git commit -m "feat: traduccion completa al espanol"
 git checkout main
-git merge feature/nuevo-estilo
+git merge feature/traduccion-espanol
 git push origin main</code></pre>
         </div>
         <div class="devops-step">
