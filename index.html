@@ -3,366 +3,604 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro de Hobbies & Tracker | Dev & DevOps Hub</title>
+  <title>Jiron • Hobby & Time Tracker</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header / Barra de Navegación -->
-  <header class="navbar">
-    <div class="nav-container">
-      <div class="brand">
-        <span class="brand-icon">🎯</span>
-        <div class="brand-text">
-          <h1>HobbyTracker</h1>
-          <span class="badge-env">v1.0 • Docker Ready</span>
-        </div>
-      </div>
-      <nav class="nav-tabs">
-        <button class="tab-btn active" data-tab="hobbies-tab">🎨 Mis Hobbies</button>
-        <button class="tab-btn" data-tab="agent-tab">🤖 Asistente Open Code</button>
-        <button class="tab-btn" data-tab="guide-tab">🚀 Guía Git & Render</button>
-      </nav>
-    </div>
-  </header>
-
-  <main class="main-container">
+  <div class="app-viewport">
     
-    <!-- PESTAÑA 1: GESTIÓN DE HOBBIES -->
-    <section id="hobbies-tab" class="tab-content active">
-      <!-- Barra de estadísticas -->
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-icon">📚</div>
-          <div class="stat-info">
-            <span class="stat-value" id="total-hobbies">0</span>
-            <span class="stat-label">Hobbies Registrados</span>
-          </div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon">⏱️</div>
-          <div class="stat-info">
-            <span class="stat-value" id="total-hours">0h</span>
-            <span class="stat-label">Dedicación Semanal</span>
-          </div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon">⭐</div>
-          <div class="stat-info">
-            <span class="stat-value" id="favorite-count">0</span>
-            <span class="stat-label">Favoritos</span>
-          </div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon">🐳</div>
-          <div class="stat-info">
-            <span class="stat-value text-success">Render OK</span>
-            <span class="stat-label">Estado de Docker</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="app-layout">
-        <!-- Formulario para Registrar Nuevo Hobby -->
-        <aside class="form-column">
-          <div class="card form-card">
-            <div class="card-header">
-              <h2>➕ Nuevo Hobby</h2>
-              <p>Agrega una nueva pasión o actividad a tu rutina</p>
-            </div>
-            
-            <form id="hobby-form">
-              <div class="form-group">
-                <label for="hobby-name">Nombre del Hobby *</label>
-                <input type="text" id="hobby-name" placeholder="Ej. Tocar Guitarra, Fotografía, Python..." required>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="hobby-category">Categoría *</label>
-                  <select id="hobby-category" required>
-                    <option value="Arte y Creatividad">🎨 Arte y Creatividad</option>
-                    <option value="Tecnología">💻 Tecnología / Programación</option>
-                    <option value="Música">🎵 Música</option>
-                    <option value="Deportes">⚽ Deportes y Fitness</option>
-                    <option value="Lectura">📖 Lectura y Aprendizaje</option>
-                    <option value="Cocina">🍳 Cocina y Gastronomía</option>
-                    <option value="Aire Libre">🌲 Aire Libre y Viajes</option>
-                    <option value="Otros">✨ Otros</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="hobby-level">Nivel de Experiencia</label>
-                  <select id="hobby-level">
-                    <option value="Principiante">🌱 Principiante</option>
-                    <option value="Intermedio" selected>🌿 Intermedio</option>
-                    <option value="Avanzado">🌳 Avanzado</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="hobby-hours">Horas dedicadas a la semana</label>
-                <input type="number" id="hobby-hours" min="0.5" max="60" step="0.5" value="3" required>
-              </div>
-
-              <div class="form-group">
-                <label for="hobby-notes">Objetivo o Nota Personal</label>
-                <textarea id="hobby-notes" rows="2" placeholder="Ej. Practicar 30 min diarios para dominar acordes..."></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-block">
-                <span>Guardar Hobby</span> ✨
-              </button>
-            </form>
-          </div>
-        </aside>
-
-        <!-- Lista y Filtros de Hobbies -->
-        <div class="list-column">
-          <div class="card list-card">
-            <div class="list-header">
-              <div class="search-box">
-                <span class="search-icon">🔍</span>
-                <input type="text" id="search-input" placeholder="Buscar por nombre o nota...">
-              </div>
-              <div class="filter-box">
-                <select id="category-filter">
-                  <option value="ALL">Todas las Categorías</option>
-                  <option value="Arte y Creatividad">Arte y Creatividad</option>
-                  <option value="Tecnología">Tecnología</option>
-                  <option value="Música">Música</option>
-                  <option value="Deportes">Deportes</option>
-                  <option value="Lectura">Lectura</option>
-                  <option value="Cocina">Cocina</option>
-                  <option value="Aire Libre">Aire Libre</option>
-                  <option value="Otros">Otros</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- Contenedor dinámico de tarjetas -->
-            <div id="hobbies-grid" class="hobbies-grid">
-              <!-- Se llena con app.js -->
-            </div>
-
-            <div id="empty-state" class="empty-state" style="display: none;">
-              <div class="empty-icon">🎈</div>
-              <h3>No se encontraron hobbies</h3>
-              <p>Comienza registrando tu primer hobby usando el formulario a la izquierda.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PESTAÑA 2: ASISTENTE OPEN CODE -->
-    <section id="agent-tab" class="tab-content">
-      <div class="card agent-card">
-        <div class="agent-header">
-          <div class="agent-avatar">🤖</div>
-          <div>
-            <h2>Agente IA Open Code para Hobbies</h2>
-            <p>Genera rutinas inteligentes, metas semanales y recomendaciones ejecutadas por tu Agente Open Code.</p>
-          </div>
+    <!-- Ventana Principal Flotante Estilo Dashboard -->
+    <div class="dashboard-container">
+      
+      <!-- ================= SIDEBAR IZQUIERDA ================= -->
+      <aside class="sidebar">
+        <!-- Logo -->
+        <div class="sidebar-brand">
+          <div class="brand-orb"></div>
+          <span class="brand-title">Jiron</span>
         </div>
 
-        <div class="agent-body">
-          <div class="agent-input-box">
-            <label for="agent-prompt-select">Elige un objetivo para el Agente:</label>
-            <div class="agent-controls">
-              <select id="agent-prompt-select">
-                <option value="plan_7_dias">📅 Diseñar un plan de entrenamiento de 7 días para mi hobby</option>
-                <option value="recomendaciones">💡 Recomendar 3 hobbies complementarios basados en mis gustos</option>
-                <option value="optimizacion_tiempo">⏳ Optimizar mis horas semanales para evitar agotamiento</option>
-                <option value="checklist_habitos">✅ Generar checklist diario de hábitos para principiantes</option>
-              </select>
-              <button id="btn-run-agent" class="btn btn-accent">
-                <span>Ejecutar Agente en Open Code</span> ⚡
-              </button>
-            </div>
+        <!-- Navegación Principal -->
+        <div class="sidebar-menu">
+          <div class="menu-section-label">Main</div>
+          <ul class="nav-list">
+            <li class="nav-item active" data-view="view-tracker">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>Time Tracker</span>
+            </li>
+            <li class="nav-item" data-view="view-hobbies">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              <span>Projects & Hobbies</span>
+            </li>
+            <li class="nav-item" data-view="view-reports">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"></path></svg>
+              <span>Reports</span>
+            </li>
+            <li class="nav-item" data-view="view-tags">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+              <span>Tags</span>
+            </li>
+          </ul>
+
+          <div class="menu-section-label" style="margin-top: 1.5rem;">DevOps & IA</div>
+          <ul class="nav-list">
+            <li class="nav-item" data-view="view-opencode" id="nav-opencode">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4M8 15h.01M16 15h.01"></path></svg>
+              <span>Open Code Agent</span>
+              <span class="badge-counter">3</span>
+            </li>
+            <li class="nav-item" data-view="view-devops" id="nav-devops">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+              <span>Git & Render</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Usuario al pie de la sidebar -->
+        <div class="sidebar-user">
+          <div class="user-avatar">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar">
           </div>
-
-          <!-- Terminal interactiva simulada del agente -->
-          <div class="agent-terminal">
-            <div class="terminal-header">
-              <div class="terminal-dots">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-              </div>
-              <span class="terminal-title">opencode-agent — Terminal de Razonamiento</span>
-              <button id="btn-copy-agent-output" class="btn-copy-small">Copiar Salida</button>
-            </div>
-            <div id="agent-terminal-output" class="terminal-content">
-              <p class="term-line term-dim">// Agente Open Code listo en local.</p>
-              <p class="term-line term-dim">// Presiona 'Ejecutar Agente en Open Code' para iniciar el ciclo ReAct.</p>
-            </div>
-          </div>
-
-          <div class="agent-code-preview">
-            <h3>💻 Cómo crear y ejecutar este agente desde tu consola:</h3>
-            <div class="code-block">
-              <pre><code># 1. Ejecutar directamente con la CLI de OpenCode
-npx opencode-ai run "Analiza mis hobbies registrados y crea un plan de 7 días"
-
-# 2. O ejecutar el script Python dedicado
-python agente_opencode.py</code></pre>
-            </div>
+          <div class="user-info">
+            <span class="user-name">David Abrigo</span>
+            <span class="user-role">Docker Ready</span>
           </div>
         </div>
-      </div>
-    </section>
+      </aside>
 
-    <!-- PESTAÑA 3: GUÍA PASO A PASO GIT, GITHUB, RAMAS, OPENCODE & RENDER -->
-    <section id="guide-tab" class="tab-content">
-      <div class="guide-container">
+      <!-- ================= CONTENIDO PRINCIPAL ================= -->
+      <main class="main-content">
         
-        <div class="guide-intro card">
-          <h2>🚀 Guía Integral de Flujo DevOps y Despliegue</h2>
-          <p>Sigue estos 6 pasos indispensables para versionar este proyecto de Hobbies, aislar tus cambios en ramas, integrarlo con GitHub, automatizar con Open Code y publicarlo en producción con Docker en Render.</p>
+        <!-- Topbar con Título e Iconos -->
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 class="page-title" id="current-view-title">Time Tracker</h1>
+          </div>
+          <div class="topbar-right">
+            <button class="btn-create-hobby" id="btn-open-add-modal">
+              <span>+ Nuevo Hobby</span>
+            </button>
+            <button class="topbar-icon-btn" title="Configuración">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </button>
+            <button class="topbar-icon-btn" title="Ayuda y Documentación" id="btn-open-guide-quick">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </button>
+            <button class="topbar-icon-btn" title="Notificaciones">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+              <span class="notif-dot"></span>
+            </button>
+          </div>
+        </header>
+
+        <!-- SECCIÓN 1: LAS 4 TARJETAS DE CATEGORÍAS SUPERIORES -->
+        <section class="top-cards-grid">
+          <!-- Tarjeta 1: Púrpura -->
+          <div class="category-card card-purple">
+            <div class="card-top-row">
+              <div class="avatar-stack">
+                <span class="avatar-circle">🎸</span>
+                <span class="avatar-circle">🎨</span>
+                <span class="avatar-count">2</span>
+              </div>
+              <button class="card-dots-btn">•••</button>
+            </div>
+            <h3 class="category-title">UI & Creatividad</h3>
+            <p class="category-desc">Desarrollo de hobbies visuales, diseño y composición musical...</p>
+          </div>
+
+          <!-- Tarjeta 2: Azul -->
+          <div class="category-card card-blue">
+            <div class="card-top-row">
+              <div class="avatar-stack">
+                <span class="avatar-circle">💻</span>
+                <span class="avatar-circle">🐳</span>
+                <span class="avatar-circle">🤖</span>
+                <span class="avatar-count">8</span>
+              </div>
+              <button class="card-dots-btn">•••</button>
+            </div>
+            <h3 class="category-title">Open Code & Docker</h3>
+            <p class="category-desc">Automatización de tareas con agentes, microservicios y despliegue...</p>
+          </div>
+
+          <!-- Tarjeta 3: Amarillo / Ámbar -->
+          <div class="category-card card-amber">
+            <div class="card-top-row">
+              <div class="avatar-stack">
+                <span class="avatar-circle">🏃</span>
+                <span class="avatar-circle">🚴</span>
+                <span class="avatar-count">2</span>
+              </div>
+              <button class="card-dots-btn">•••</button>
+            </div>
+            <h3 class="category-title">Deportes & Fitness</h3>
+            <p class="category-desc">Senderismo, rutinas de resistencia física y hábitos saludables...</p>
+          </div>
+
+          <!-- Tarjeta 4: Rosa / Magenta -->
+          <div class="category-card card-pink">
+            <div class="card-top-row">
+              <div class="avatar-stack">
+                <span class="avatar-circle">📖</span>
+                <span class="avatar-circle">✍️</span>
+                <span class="avatar-count">2</span>
+              </div>
+              <button class="card-dots-btn">•••</button>
+            </div>
+            <h3 class="category-title">Python Developers</h3>
+            <p class="category-desc">Programación aplicada, lógica de agentes y backend en Render...</p>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 2: KANBAN DE ESTADOS (Draft, In Progress, Editing, Done) -->
+        <section class="kanban-grid">
+          
+          <!-- Columna 1: Draft -->
+          <div class="kanban-column">
+            <div class="kanban-header">
+              <span class="kanban-title">Draft</span>
+              <button class="column-dots-btn">•••</button>
+            </div>
+            <div class="kanban-tasks">
+              <div class="kanban-item">
+                <span class="badge-tag tag-purple">UI</span>
+                <span class="task-title">Redesign a Mobile App</span>
+              </div>
+              <div class="kanban-item">
+                <span class="badge-tag tag-amber">FD</span>
+                <span class="task-title">API Integration Challenge</span>
+              </div>
+            </div>
+            <div class="kanban-footer">
+              <div class="footer-icons">
+                <span>📎 3</span>
+                <span>💬 3</span>
+              </div>
+              <button class="star-btn active">★</button>
+            </div>
+          </div>
+
+          <!-- Columna 2: In Progress -->
+          <div class="kanban-column">
+            <div class="kanban-header">
+              <span class="kanban-title">In Progress</span>
+              <button class="column-dots-btn">•••</button>
+            </div>
+            <div class="kanban-tasks">
+              <div class="kanban-item">
+                <span class="badge-tag tag-pink">PD</span>
+                <span class="task-title">Data Processing Script</span>
+              </div>
+              <div class="kanban-item">
+                <span class="badge-tag tag-amber">FD</span>
+                <span class="task-title">Build a landing page for hobbies</span>
+              </div>
+            </div>
+            <div class="kanban-footer">
+              <div class="footer-icons">
+                <span>📎 4</span>
+                <span>💬 8</span>
+              </div>
+              <button class="star-btn active">★</button>
+            </div>
+          </div>
+
+          <!-- Columna 3: Editing / Open Code -->
+          <div class="kanban-column">
+            <div class="kanban-header">
+              <span class="kanban-title">Editing</span>
+              <button class="column-dots-btn">•••</button>
+            </div>
+            <div class="kanban-tasks checklist-mode">
+              <div class="check-step">
+                <span class="dot-indicator blue"></span>
+                <span>User Authentication Mo...</span>
+              </div>
+              <div class="check-step">
+                <span class="dot-indicator blue"></span>
+                <span>Data Processing Script</span>
+              </div>
+              <div class="check-step">
+                <span class="dot-indicator blue"></span>
+                <span>API Integration Service</span>
+              </div>
+            </div>
+            <div class="kanban-footer">
+              <div class="success-pills">
+                <span class="pill-label">Success</span>
+                <span class="check-dot">✓</span>
+                <span class="check-dot">✓</span>
+                <span class="check-dot">✓</span>
+              </div>
+              <button class="star-btn active">★</button>
+            </div>
+          </div>
+
+          <!-- Columna 4: Done -->
+          <div class="kanban-column">
+            <div class="kanban-header">
+              <span class="kanban-title">Done</span>
+              <button class="column-dots-btn">•••</button>
+            </div>
+            <div class="kanban-tasks">
+              <div class="kanban-item done-item">
+                <span class="badge-tag tag-purple">UI</span>
+                <span class="task-title">Provide a short explanation...</span>
+                <span class="status-check">✓</span>
+              </div>
+              <div class="kanban-item done-item">
+                <span class="badge-tag tag-purple">UI</span>
+                <span class="task-title">Navigation bar that stick...</span>
+                <span class="status-check">✓</span>
+              </div>
+              <div class="kanban-item done-item">
+                <span class="badge-tag tag-pink">PD</span>
+                <span class="task-title">Endpoints to create, rea...</span>
+                <span class="status-check">✓</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- SECCIÓN 3: TASK MANAGEMENT / HORARIO SEMANAL -->
+        <section class="schedule-section">
+          
+          <div class="schedule-header">
+            <h2 class="schedule-title">Task Management</h2>
+            <div class="period-switcher">
+              <button class="period-btn">Month</button>
+              <button class="period-btn">Day</button>
+              <button class="period-btn active">Week</button>
+              <button class="period-btn dots">•••</button>
+            </div>
+          </div>
+
+          <!-- Tabla de Horarios Semanal -->
+          <div class="calendar-grid-wrapper">
+            <div class="calendar-table">
+              
+              <!-- Fila de Encabezados de Días -->
+              <div class="calendar-row header-row">
+                <div class="time-col-header"></div>
+                <div class="day-col-header">
+                  <span class="day-name">Monday</span>
+                  <span class="day-date">09.08.2025</span>
+                </div>
+                <div class="day-col-header highlight-col">
+                  <span class="day-name">Tuesday</span>
+                  <span class="day-date">10.08.2025</span>
+                </div>
+                <div class="day-col-header">
+                  <span class="day-name">Wednesday</span>
+                  <span class="day-date">11.08.2025</span>
+                </div>
+                <div class="day-col-header">
+                  <span class="day-name">Thursday</span>
+                  <span class="day-date">12.08.2025</span>
+                </div>
+                <div class="day-col-header">
+                  <span class="day-name">Friday</span>
+                  <span class="day-date">13.08.2025</span>
+                </div>
+                <div class="day-col-header">
+                  <span class="day-name">Saturday</span>
+                  <span class="day-date">14.08.2025</span>
+                </div>
+                <div class="day-col-header">
+                  <span class="day-name">Sunday</span>
+                  <span class="day-date">15.08.2025</span>
+                </div>
+              </div>
+
+              <!-- Cuerpo del Calendario con Horas y Bloques -->
+              <div class="calendar-body">
+                
+                <!-- Línea de tiempo activa (Live Time Indicator) -->
+                <div class="live-timeline" style="top: 84px;">
+                  <span class="timeline-dot"></span>
+                  <span class="timeline-line"></span>
+                </div>
+
+                <!-- 08:30 -->
+                <div class="calendar-row">
+                  <div class="time-label">08:30</div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell highlight-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell"></div>
+                </div>
+
+                <!-- 09:00 -->
+                <div class="calendar-row">
+                  <div class="time-label">09:00</div>
+                  <div class="time-cell">
+                    <!-- Tarjeta Azul de Lunes -->
+                    <div class="schedule-card card-blue-soft">
+                      <div class="card-avatar-mini">
+                        <span>👤</span><span>👤</span><span>👤</span><span class="mini-count">9</span>
+                      </div>
+                      <span class="card-schedule-text">Creating a seamless mobile app f...</span>
+                    </div>
+                  </div>
+                  <div class="time-cell highlight-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell">
+                    <!-- Tarjeta Púrpura de Jueves -->
+                    <div class="schedule-card card-purple-soft">
+                      <div class="card-avatar-mini">
+                        <span>🏛️</span><span>👤</span><span>👤</span><span class="mini-count">2</span>
+                      </div>
+                      <span class="card-schedule-text">Designs intuitive and engaging di...</span>
+                    </div>
+                  </div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell"></div>
+                </div>
+
+                <!-- 09:30 -->
+                <div class="calendar-row">
+                  <div class="time-label">09:30</div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell highlight-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell"></div>
+                </div>
+
+                <!-- 09:45 -->
+                <div class="calendar-row">
+                  <div class="time-label">09:45</div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell highlight-cell">
+                    <!-- Tarjeta Rosa de Martes -->
+                    <div class="schedule-card card-pink-soft">
+                      <div class="card-avatar-mini">
+                        <span>📹</span><span>👤</span><span>👤</span><span class="mini-count">3</span>
+                      </div>
+                      <span class="card-schedule-text">The Exciting World of API Integration:...</span>
+                    </div>
+                  </div>
+                  <div class="time-cell">
+                    <!-- Tarjeta Amarilla de Miércoles -->
+                    <div class="schedule-card card-yellow-soft">
+                      <div class="card-avatar-mini">
+                        <span>🏛️</span><span>👤</span><span>👤</span><span class="mini-count">3</span>
+                      </div>
+                      <span class="card-schedule-text">Enhance Your Skills and Knowledge...</span>
+                    </div>
+                  </div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell">
+                    <!-- Tarjeta Naranja de Viernes -->
+                    <div class="schedule-card card-orange-soft">
+                      <div class="card-avatar-mini">
+                        <span>🏛️</span><span>👤</span><span>👤</span><span class="mini-count">3</span>
+                      </div>
+                      <span class="card-schedule-text">Test with real users to ensure the fl...</span>
+                    </div>
+                  </div>
+                  <div class="time-cell">
+                    <!-- Tarjeta Violeta de Sábado -->
+                    <div class="schedule-card card-violet-soft">
+                      <div class="card-avatar-mini">
+                        <span>📹</span><span>👤</span><span>👤</span><span class="mini-count">3</span>
+                      </div>
+                      <span class="card-schedule-text">Prototyping and create world of API...</span>
+                    </div>
+                  </div>
+                  <div class="time-cell"></div>
+                </div>
+
+                <!-- 10:30 -->
+                <div class="calendar-row">
+                  <div class="time-label">10:30</div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell highlight-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell"></div>
+                </div>
+
+                <!-- 11:00 -->
+                <div class="calendar-row">
+                  <div class="time-label">11:00</div>
+                  <div class="time-cell">
+                    <div class="schedule-card card-yellow-soft">
+                      <div class="card-avatar-mini">
+                        <span>🏛️</span><span>👤</span><span>👤</span><span class="mini-count">3</span>
+                      </div>
+                      <span class="card-schedule-text">Test with real users to...</span>
+                    </div>
+                  </div>
+                  <div class="time-cell highlight-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell">
+                    <div class="schedule-card card-violet-soft">
+                      <div class="card-avatar-mini">
+                        <span>📹</span><span>👤</span><span>👤</span><span class="mini-count">3</span>
+                      </div>
+                      <span class="card-schedule-text">Start by mapping out...</span>
+                    </div>
+                  </div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell"></div>
+                  <div class="time-cell">
+                    <div class="schedule-card card-pink-soft">
+                      <div class="card-avatar-mini">
+                        <span>📹</span><span>👤</span><span>👤</span><span class="mini-count">3</span>
+                      </div>
+                      <span class="card-schedule-text">Consider the onboarding...</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+  </div>
+
+  <!-- ================= MODAL: NUEVO HOBBY ================= -->
+  <div id="modal-add-hobby" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>➕ Registrar Nuevo Hobby</h3>
+        <button class="modal-close" id="btn-close-modal">✕</button>
+      </div>
+      <form id="hobby-form">
+        <div class="form-group">
+          <label for="hobby-name">Nombre del Hobby o Proyecto *</label>
+          <input type="text" id="hobby-name" placeholder="Ej. Tocar Guitarra, Fotografía, Python..." required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="hobby-category">Categoría *</label>
+            <select id="hobby-category" required>
+              <option value="UI & Creatividad">🎨 UI & Creatividad</option>
+              <option value="Open Code & Docker">💻 Open Code & Docker</option>
+              <option value="Deportes & Fitness">🏃 Deportes & Fitness</option>
+              <option value="Python Developers">🐍 Python Developers</option>
+              <option value="Otros">✨ Otros</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="hobby-level">Nivel</label>
+            <select id="hobby-level">
+              <option value="Principiante">🌱 Principiante</option>
+              <option value="Intermedio" selected>🌿 Intermedio</option>
+              <option value="Avanzado">🌳 Avanzado</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="hobby-hours">Horas Semanales</label>
+          <input type="number" id="hobby-hours" min="0.5" max="60" step="0.5" value="3" required>
+        </div>
+        <div class="form-group">
+          <label for="hobby-notes">Notas / Objetivos</label>
+          <textarea id="hobby-notes" rows="2" placeholder="Ej. Practicar 30 min diarios..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit-modal">Guardar Hobby</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: AGENTE OPEN CODE ================= -->
+  <div id="modal-opencode" class="modal-overlay">
+    <div class="modal-card modal-large">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:0.6rem;">
+          <span style="font-size:1.4rem;">🤖</span>
+          <h3>Agente Autónomo Open Code</h3>
+        </div>
+        <button class="modal-close" id="btn-close-agent-modal">✕</button>
+      </div>
+      <div class="agent-modal-body">
+        <div class="form-group">
+          <label>Selecciona una acción para el Agente:</label>
+          <div style="display:flex; gap:0.5rem;">
+            <select id="agent-prompt-select">
+              <option value="plan_7_dias">📅 Diseñar plan de 7 días para mis hobbies</option>
+              <option value="recomendaciones">💡 Recomendar 3 hobbies complementarios</option>
+              <option value="optimizacion_tiempo">⏳ Optimizar horario de Time Tracker</option>
+            </select>
+            <button id="btn-run-agent" class="btn-agent-action">Ejecutar Agente ⚡</button>
+          </div>
         </div>
 
-        <div class="steps-accordion">
-          
-          <!-- PASO 1 -->
-          <div class="step-card card">
-            <div class="step-badge">Paso 1</div>
-            <div class="step-content">
-              <h3>Uso de Git (Control de Versiones Local)</h3>
-              <p>Inicia el repositorio local en la carpeta de tu proyecto y realiza tu primer commit con los archivos del Registro de Hobbies.</p>
-              <div class="code-box">
-                <button class="copy-btn" data-code="git init&#10;git add .&#10;git commit -m 'feat: proyecto inicial registro de hobbies y dockerfile'">Copiar</button>
-                <pre><code># 1. Abrir la terminal en la carpeta del proyecto
-git init
-
-# 2. Agregar todos los archivos al área de preparación (Staging)
-git add .
-
-# 3. Crear el primer commit
-git commit -m "feat: proyecto inicial registro de hobbies y dockerfile"</code></pre>
-              </div>
-            </div>
+        <div class="terminal-box">
+          <div class="terminal-top">
+            <span class="term-title">opencode-ai v1.18.18 (ReAct Loop)</span>
+            <button id="btn-copy-terminal" class="btn-copy-term">Copiar</button>
           </div>
-
-          <!-- PASO 2 -->
-          <div class="step-card card">
-            <div class="step-badge">Paso 2</div>
-            <div class="step-content">
-              <h3>Uso de GitHub (Repositorio Remoto)</h3>
-              <p>Crea un repositorio en <a href="https://github.com/new" target="_blank" rel="noopener">GitHub.com</a> (ej. <code>registro-hobbies-docker</code>) y sube tu rama principal.</p>
-              <div class="code-box">
-                <button class="copy-btn" data-code="git branch -M main&#10;git remote add origin https://github.com/TU_USUARIO/registro-hobbies-docker.git&#10;git push -u origin main">Copiar</button>
-                <pre><code># 1. Renombrar la rama a 'main'
-git branch -M main
-
-# 2. Conectar tu repositorio local con el remoto de GitHub
-git remote add origin https://github.com/TU_USUARIO/registro-hobbies-docker.git
-
-# 3. Subir el código por primera vez
-git push -u origin main</code></pre>
-              </div>
-            </div>
+          <div id="agent-terminal-output" class="terminal-logs">
+            <p class="t-line t-dim">// Agente Open Code preparado.</p>
+            <p class="t-line t-dim">// Haz clic en 'Ejecutar Agente' para iniciar.</p>
           </div>
-
-          <!-- PASO 3 -->
-          <div class="step-card card">
-            <div class="step-badge">Paso 3</div>
-            <div class="step-content">
-              <h3>Creación de una Rama (Branching)</h3>
-              <p>Crea y cámbiate a una rama aislada para desarrollar nuevas funcionalidades (ej. agregar el Agente Open Code o mejoras de UI) sin alterar <code>main</code>.</p>
-              <div class="code-box">
-                <button class="copy-btn" data-code="git checkout -b feature/agente-opencode&#10;# Realizar cambios en el código...&#10;git add .&#10;git commit -m 'feat: integracion de agente opencode para hobbies'&#10;git push -u origin feature/agente-opencode">Copiar</button>
-                <pre><code># 1. Crear y moverse a la nueva rama 'feature/agente-opencode'
-git checkout -b feature/agente-opencode
-
-# 2. Realizar cambios y guardarlos en la rama
-git add .
-git commit -m "feat: integracion de agente opencode para hobbies"
-
-# 3. Subir la rama a GitHub
-git push -u origin feature/agente-opencode</code></pre>
-              </div>
-            </div>
-          </div>
-
-          <!-- PASO 4 -->
-          <div class="step-card card">
-            <div class="step-badge">Paso 4</div>
-            <div class="step-content">
-              <h3>Unión de su Rama contra el Main (Merge)</h3>
-              <p>Fusiona los cambios verificados de tu rama hacia la rama principal <code>main</code>.</p>
-              <div class="code-box">
-                <button class="copy-btn" data-code="git checkout main&#10;git pull origin main&#10;git merge feature/agente-opencode&#10;git push origin main">Copiar</button>
-                <pre><code># 1. Cambiarse de nuevo a la rama 'main'
-git checkout main
-
-# 2. Asegurarse de tener la última versión
-git pull origin main
-
-# 3. Unir (Merge) los cambios de la rama secundaria
-git merge feature/agente-opencode
-
-# 4. Enviar los cambios fusionados a GitHub
-git push origin main</code></pre>
-              </div>
-            </div>
-          </div>
-
-          <!-- PASO 5 -->
-          <div class="step-card card">
-            <div class="step-badge">Paso 5</div>
-            <div class="step-content">
-              <h3>Creación de su Primer Agente en Open Code</h3>
-              <p>Usa la herramienta Open Code para ejecutar o crear agentes autónomos de código y tareas inteligentes.</p>
-              <div class="code-box">
-                <button class="copy-btn" data-code="npm install -g opencode-ai&#10;npx opencode-ai --help&#10;npx opencode-ai run 'Crea un script que lea los hobbies y me sugiera libros relacionados'">Copiar</button>
-                <pre><code># 1. Instalar o verificar OpenCode
-npm install -g opencode-ai
-
-# 2. Ejecutar tu primer comando de agente autónomo
-npx opencode-ai run "Crea un script que lea los hobbies y me sugiera libros relacionados"
-
-# 3. O ejecutar el agente en Python incluido en el proyecto
-python agente_opencode.py</code></pre>
-              </div>
-            </div>
-          </div>
-
-          <!-- PASO 6 -->
-          <div class="step-card card">
-            <div class="step-badge">Paso 6</div>
-            <div class="step-content">
-              <h3>Publicación en Render con Docker</h3>
-              <p>Despliega este proyecto en la nube de Render utilizando el <code>Dockerfile</code> provisto.</p>
-              <div class="code-box">
-                <button class="copy-btn" data-code="# 1. Entra a https://dashboard.render.com&#10;# 2. Selecciona 'New' -> 'Web Service'&#10;# 3. Conecta tu repositorio de GitHub&#10;# 4. Runtime: Selecciona 'Docker'&#10;# 5. Plan: Selecciona 'Free' y haz clic en 'Create Web Service'">Copiar</button>
-                <pre><code># Pasos en Render Dashboard:
-1. Inicia sesión en https://dashboard.render.com
-2. Haz clic en "New +" y selecciona "Web Service"
-3. Conecta tu repositorio de GitHub (ej. "registro-hobbies-docker")
-4. En "Runtime", Render detectará automáticamente el Dockerfile (o selecciona Docker)
-5. Selecciona la región más cercana y el plan "Free"
-6. Haz clic en "Deploy Web Service" ¡y tu app estará online en pocos segundos!</code></pre>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <p>🎯 <strong>HobbyTracker App</strong> — Construido con HTML5, CSS3, JavaScript, Docker & Open Code.</p>
-      <p class="footer-links">Desarrollado para aprendizaje integral de Git, GitHub, Ramas, Agentes y Despliegue en Render.</p>
     </div>
-  </footer>
+  </div>
+
+  <!-- ================= MODAL: GUÍA DEVOPS GIT & RENDER ================= -->
+  <div id="modal-devops" class="modal-overlay">
+    <div class="modal-card modal-large">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:0.6rem;">
+          <span style="font-size:1.4rem;">🚀</span>
+          <h3>Guía DevOps: Git, GitHub, Ramas & Render</h3>
+        </div>
+        <button class="modal-close" id="btn-close-devops-modal">✕</button>
+      </div>
+      <div class="devops-modal-body">
+        <div class="devops-step">
+          <h4>1. Iniciar Git Local</h4>
+          <pre><code>git init
+git add .
+git commit -m "feat: proyecto registro de hobbies estilo Jiron"</code></pre>
+        </div>
+        <div class="devops-step">
+          <h4>2. Subir a GitHub</h4>
+          <pre><code>git branch -M main
+git remote add origin https://github.com/TU_USUARIO/registro-hobbies-docker.git
+git push -u origin main</code></pre>
+        </div>
+        <div class="devops-step">
+          <h4>3. Crear Rama y Fusionar</h4>
+          <pre><code>git checkout -b feature/nuevo-estilo
+git add . && git commit -m "feat: interfaz moderna Jiron"
+git checkout main
+git merge feature/nuevo-estilo
+git push origin main</code></pre>
+        </div>
+        <div class="devops-step">
+          <h4>4. Desplegar en Render con Docker</h4>
+          <pre><code># En https://dashboard.render.com:
+1. New + -> Web Service
+2. Conecta tu repositorio de GitHub
+3. Runtime: Docker (usa el Dockerfile incluido)
+4. Plan Free -> Create Web Service</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
