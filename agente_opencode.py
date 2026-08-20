@@ -10,6 +10,11 @@ Este script demuestra cómo construir tu primer agente autónomo básico que:
 
 import json
 import time
+import sys
+
+# Asegurar compatibilidad de caracteres UTF-8 en terminales Windows
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 
 def tool_analizar_carga_horaria(hobbies):
     """Herramienta (Tool) para calcular horas totales y balance."""
