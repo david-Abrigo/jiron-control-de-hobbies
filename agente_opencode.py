@@ -63,3 +63,5 @@ def ejecutar_primer_agente_opencode():
 
 if __name__ == "__main__":
     ejecutar_primer_agente_opencode()
+
+# Actualizado por rama feature/agente-opencode: Agente listo para Render y OpenCode
